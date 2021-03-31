@@ -1,26 +1,3 @@
-.form-inputs > input,
-.btn-submit {
-  width: 400px;
-  display: block;
-  border: none;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.568);
-}
-.form-inputs,
-.btn-submit {
-  margin: 25px 20px;
-}
-input:focus {
-  outline: none;
-}
-.login span {
-  color: #dc3545;
-  text-decoration: underline;
-  cursor: pointer;
-}
-.login span:hover {
-  text-decoration: none;
-  cursor: pointer;
-}
 .btn-customise {
   border-radius: 30px;
   border: 1px solid #dc3545;
@@ -33,9 +10,4 @@ input:focus {
 .btn-customise img {
   margin: 0 8px;
   height: 30px;
-}
-.form-inputs p {
-  font-size: 0.8rem;
-  margin-top: 0.5rem;
-  color: #f00e0e;
 }
