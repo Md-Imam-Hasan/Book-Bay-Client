@@ -16,7 +16,9 @@ import Checkout from './components/Checkout/Checkout';
 export const UserContext = createContext();
 
 function App() {
-  const [loggedInUser, setLoggedInUser] = useState({})
+  const [loggedInUser, setLoggedInUser] = useState({
+    success:false
+  })
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <Router>

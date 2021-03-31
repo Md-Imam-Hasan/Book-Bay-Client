@@ -10,31 +10,35 @@ const Admin = () => {
   const { register, handleSubmit, watch, errors } = useForm();
   const [imageURL, setImageURL] = useState(null)
   const [bookList, setBookList] = useState([])
+  const [addBook, setAddBook] = useState({})
   useEffect(() => {
-    const url = `http://localhost:5000/allBook`;
+    setBookList([]);
+    const url = 'http://localhost:5000/allBook'
     fetch(url)
       .then(res => res.json())
       .then(data => setBookList(data))
-  }, [imageURL])
+  }, [addBook])
 
   const onSubmit = data => {
-    const newEvent = {
+    // let newBook = {...addBook}
+    const newBook = {
       bookName: data.bookName,
       author: data.author,
       price: data.price,
       imageURL: imageURL
     }
+    setAddBook(newBook);
     const url = `http://localhost:5000/addBook`;
     fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(newEvent)
+      body: JSON.stringify(newBook)
     })
       .then(res => res.json())
       .then(data => {
-        data && console.log('ok');
+        data && alert("New Book's Information Added Successfully")
       })
   };
 
@@ -104,10 +108,10 @@ const Admin = () => {
             </thead>
             <tbody>
               {
-                bookList.map(book => <tr>
+                bookList.map(book => <tr key={book._id}>
                   <td>{book.bookName}</td>
                   <td>{book.author}</td>
-                  <td>{book.price}</td>
+                  <td>${book.price}</td>
                   <td>
                     <button onClick={()=>deleteBook(`${book._id}`)}>
                       <img src={deleteIcon} className=' icon' alt="" />

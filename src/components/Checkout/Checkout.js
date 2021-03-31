@@ -1,16 +1,35 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import React, { useContext, useEffect, useState } from 'react';
+import { Redirect, useParams } from 'react-router';
+import { UserContext } from '../../App';
 
 const Checkout = () => {
-  const [book,setBook] = useState({})
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  const [book, setBook] = useState({})
   let { id } = useParams();
 
-  useEffect(()=>{
-    const url=`http://localhost:5000/book/${id}`
+  const placeOrder = () => {
+    const orderDate = new Date();
+    const newOrder = { ...loggedInUser, bookName: book.bookName, price: book.price, orderDate };
+    const url = `http://localhost:5000/addOrder`
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newOrder)
+    })
+    .then(res => res.json())
+      .then(data => {
+        data && alert("You Successfully Placed Your Order")
+      })
+  }
+
+  useEffect(() => {
+    const url = `http://localhost:5000/book/${id}`
     fetch(url)
-    .then(res=>res.json())
-    .then(data=>setBook(data))
-  },[id])
+      .then(res => res.json())
+      .then(data => setBook(data))
+  }, [id])
   return (
     <div className='container'>
       <div className="card mt-5">
@@ -37,7 +56,7 @@ const Checkout = () => {
               </tr>
             </tbody>
           </table>
-          <button className="btn btn-primary">Checkout</button>
+          <button className="btn btn-primary" onClick={placeOrder}>Checkout</button>
         </div>
       </div>
     </div>
