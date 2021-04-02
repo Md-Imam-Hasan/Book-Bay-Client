@@ -13,7 +13,6 @@ export const handleGoogleSignIn = () => {
   return firebase.auth()
     .signInWithPopup(googleProvider)
     .then(res => {
-      console.log(res);
       const { displayName, email, photoURL } = res.user;
       const signInUser = {
         userName: displayName,

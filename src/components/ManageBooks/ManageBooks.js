@@ -20,8 +20,7 @@ const ManageBooks = () => {
       .then(res => res.json())
       .then(ok => {
         if (ok) {
-          console.log('ok');
-          // e.target.parentNode.style.display = 'none';
+          alert('Deleted Successfully')
         }
       })
   }
