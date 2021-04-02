@@ -10,7 +10,7 @@ const Header = () => {
       <nav className="navbar navbar-expand-md navbar-dark bg-dark">
         <div className='container'>
           <Link className="navbar-brand" to="/">
-            <h4 className='text-info'>Book Shop</h4>
+            <h4 className='text-info'>Book Bay</h4>
           </Link>
           <button className="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
             <span className="navbar-toggler-icon"></span>
@@ -27,12 +27,12 @@ const Header = () => {
                 <Link className="nav-link" to="/admin">Admin</Link>
               </li>
               <li className="nav-item me-5">
-                <Link className="nav-link" to="/deals">Deals</Link>
+                <Link className="nav-link" to="">Deals</Link>
               </li>
             </ul>
             {!loggedInUser.success?<Link to='/login'>
               <button className='btn btn-danger'>Login</button>
-            </Link>:<h5 className='text-danger my-auto'>{loggedInUser.userName}</h5>}
+            </Link>:<img src={loggedInUser.photoURL} className='image' alt=''></img>}
           </div>
         </div>
       </nav>

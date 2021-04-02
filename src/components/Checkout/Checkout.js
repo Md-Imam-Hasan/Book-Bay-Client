@@ -18,7 +18,7 @@ const Checkout = () => {
       },
       body: JSON.stringify(newOrder)
     })
-    .then(res => res.json())
+      .then(res => res.json())
       .then(data => {
         data && alert("You Successfully Placed Your Order")
       })
@@ -33,30 +33,34 @@ const Checkout = () => {
   return (
     <div className='container'>
       <div className="card mt-5">
-        <h3 className='p-4'>Checkout</h3>
+        <h3 className='px-4 pt-4'>Checkout</h3>
         <div className="card-body">
-          <table style={{ width: '100%' }}>
-            <thead>
-              <tr>
-                <th>Description</th>
-                <th>Quantity</th>
-                <th>Price</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{book.bookName}</td>
-                <td>1</td>
-                <td>{book.price}</td>
-              </tr>
-              <tr>
-                <td><b>Total</b></td>
-                <td></td>
-                <td>{book.price}</td>
-              </tr>
-            </tbody>
-          </table>
-          <button className="btn btn-primary" onClick={placeOrder}>Checkout</button>
+          <div className="container">
+            <table style={{ width: '100%' }}>
+              <thead>
+                <tr className='text-muted'>
+                  <th>Description</th>
+                  <th>Quantity</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody className='fw-bold'>
+                <tr>
+                  <td>{book.bookName}</td>
+                  <td>1</td>
+                  <td>${book.price}</td>
+                </tr>
+                <tr>
+                  <td>Total</td>
+                  <td></td>
+                  <td>${book.price}</td>
+                </tr>
+              </tbody>
+            </table>
+            <div className="d-flex justify-content-end me-sm-5">
+              <button className="btn btn-primary my-4" onClick={placeOrder}>Checkout</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
