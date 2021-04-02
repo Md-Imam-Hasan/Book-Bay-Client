@@ -15,7 +15,7 @@ const AddBook = () => {
       price: data.price,
       imageURL: imageURL
     }
-    const url = `http://localhost:5000/addBook`;
+    const url = `https://calm-falls-19504.herokuapp.com/addBook`;
     fetch(url, {
       method: 'POST',
       headers: {
@@ -50,23 +50,23 @@ const AddBook = () => {
           <div className="row g-4">
             <div className="col-sm-6 col-12">
               <label className='form-label' htmlFor="bookName"><b>Book Name</b></label>
-              <input name="bookName" type="text" className='form-control' placeholder='Enter Book Name' ref={register ({ required: true })} />
+              <input name="bookName" type="text" className='form-control' placeholder='Enter Book Name' ref={register({ required: true })} />
               {errors.bookName && <small className='text-danger'>Book Name is required</small>}
             </div>
             <div className="col-sm-6 col-12">
               <label className='form-label' htmlFor="author"><b>Author Name</b></label>
-              <input name="author" type="text" className='form-control' placeholder='Enter Author Name' ref={register ({ required: true })} />
+              <input name="author" type="text" className='form-control' placeholder='Enter Author Name' ref={register({ required: true })} />
               {errors.author && <small className='text-danger'>Author Name is required</small>}
             </div>
             <div className="col-sm-6 col-12">
               <label className='form-label' htmlFor="price"><b>Add Price</b></label>
-              <input name="price" type="text" className='form-control' placeholder='Enter Price' ref={register ({ required: true })} />
+              <input name="price" type="text" className='form-control' placeholder='Enter Price' ref={register({ required: true })} />
               {errors.price && <small className='text-danger'>Price is required</small>}
             </div>
             <div className="col-sm-6 col-12">
               <label className='form-label d-block'><b>Add Book Cover Photo</b></label>
-              <button type='button' className='btn btn-outline-primary' onClick={()=>document.getElementById('image-upload').click()}>
-                <img src={uploadIcon} className='icon' alt=""/> Upload Photo
+              <button type='button' className='btn btn-outline-primary' onClick={() => document.getElementById('image-upload').click()}>
+                <img src={uploadIcon} className='icon' alt="" /> Upload Photo
               </button>
               <input type="file" id='image-upload' className='form-control' hidden onChange={handleImageUpload} />
             </div>

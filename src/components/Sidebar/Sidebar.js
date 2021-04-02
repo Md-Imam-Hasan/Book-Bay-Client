@@ -7,7 +7,7 @@ const Sidebar = () => {
   return (
     <div>
       <Link className="navbar-brand text-center" to="/">
-        <h3 className='text-info mt-4'>BOOK BAY</h3>
+        <h4 className='text-info mt-4'>BOOK BAY</h4>
       </Link>
       <NavLink activeClassName='active' className='admin-option d-flex px-3 px-sm-5 py-3' to="/admin/manage-books">
         <img src={gridIcon} className=' icon' alt="" />

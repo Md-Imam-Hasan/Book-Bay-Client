@@ -6,14 +6,14 @@ const ManageBooks = () => {
   const [bookList, setBookList] = useState([])
   useEffect(() => {
     setBookList([]);
-    const url = 'http://localhost:5000/allBook'
+    const url = 'https://calm-falls-19504.herokuapp.com/allBook'
     fetch(url)
       .then(res => res.json())
       .then(data => setBookList(data))
   }, [])
 
   function deleteBook(id) {
-    const url = `http://localhost:5000/delete/${id}`;
+    const url = `https://calm-falls-19504.herokuapp.com/delete/${id}`;
     fetch(url, {
       method: "delete"
     })

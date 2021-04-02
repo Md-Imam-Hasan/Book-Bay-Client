@@ -10,7 +10,7 @@ const Header = () => {
       <nav className="navbar navbar-expand-md navbar-dark bg-dark">
         <div className='container'>
           <Link className="navbar-brand" to="/">
-            <h4 className='text-info'>Book Bay</h4>
+            <h4 className='text-info'>BOOK BAY</h4>
           </Link>
           <button className="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
             <span className="navbar-toggler-icon"></span>
