@@ -4,14 +4,13 @@ import editIcon from '../../images/icons/Group 307.png'
 
 const ManageBooks = () => {
   const [bookList, setBookList] = useState([])
-  const [addBook, setAddBook] = useState({})
   useEffect(() => {
     setBookList([]);
     const url = 'http://localhost:5000/allBook'
     fetch(url)
       .then(res => res.json())
       .then(data => setBookList(data))
-  }, [addBook])
+  }, [])
 
   function deleteBook(id) {
     const url = `http://localhost:5000/delete/${id}`;
